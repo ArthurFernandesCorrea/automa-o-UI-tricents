@@ -53,7 +53,7 @@ SolicitacaoPage solicitacao = new SolicitacaoPage();
 	}
 
 	@Then("validar alerta de envio")
-	public void validar_alerta_de_envio() {
+	public void validar_alerta_de_envio() throws InterruptedException {
 		solicitacao.validarOk();
 
 	}

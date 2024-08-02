@@ -1,11 +1,15 @@
 package metodos;
 
+import static org.junit.Assert.assertEquals;
+
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 
 import Drivers.Drivers;
 
 public class Metodos extends Drivers {
-
+	
+	
 	public void escrever(By elemento, String texto, String passo) {
 		try {
 			driver.findElement(elemento).sendKeys(texto);
@@ -43,6 +47,14 @@ public class Metodos extends Drivers {
 			System.out.println("*** Mensagem do erro " + e.getMessage() + "***");
 		}
 	}
+	
+	public void assertMensagem () {
+		WebElement texto = driver.findElement(By.xpath("//h2[text()='Sending e-mail success!']"));
+		String textoEmail = texto.getText();
+		assertEquals("Sending e-mail success!" , textoEmail);
+		
+	}
+	
 	
 	public void fecharNavegador() {
 		driver.quit();

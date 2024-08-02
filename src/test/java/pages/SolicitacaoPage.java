@@ -1,10 +1,15 @@
 package pages;
 
+import org.openqa.selenium.By;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import java.time.Duration;
+import Drivers.Drivers;
 import elementos.Elementos;
 import metodos.Metodos;
 import utilities.StringData;
 
-public class SolicitacaoPage {
+public class SolicitacaoPage extends Drivers{
 	
 	Metodos metodo = new Metodos();
 	Elementos el = new Elementos();
@@ -78,8 +83,13 @@ public class SolicitacaoPage {
 
 	}
 	
-	public void validarOk() {
+	public void validarOk() throws InterruptedException {
+		
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(12));
+	    wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//h2[text()='Sending e-mail success!']")));
+		metodo.assertMensagem();
 		metodo.clicarOk(el.btnConfirm, "clicar no botão confirma");
+		
 		
 	}
 

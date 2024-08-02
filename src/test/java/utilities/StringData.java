@@ -19,7 +19,7 @@ public class StringData {
 	public String webSite= "e2etreinamentos.com.br";
 	
 	//Product data
-	public String startDate= "06/15/2024";
+	public String startDate= "10/15/2024";
 	
 	//Contratante data
 	public String email= "teste@teste.com";
